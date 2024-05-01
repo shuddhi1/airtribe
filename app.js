@@ -21,7 +21,7 @@ app.get("/api/tasks",(req,res)=>{
 
 app.get("/api/tasks/:id",(req,res)=>{
     const id =req.params.id
-    const task = data.find((task)=> task.id === parseInt(id))
+      const task = data.tasks.find((task)=> task.id === parseInt(id))
     if(!task){
        return  res.status (404).send("the following ID does not exist ")
     }
@@ -38,7 +38,7 @@ app.post("/api/tasks",(req,res)=>{
 
 app.put("api/tasks/:id",(req,res)=>{
     const id= req.params.id;
-    const task = data.find((task)=> task.id === parseInt(id));
+     const task = data.tasks.find((task)=> task.id === parseInt(id))
     task.title=req.body.title;
     task.description=req.body.description;
     task.completed=req.body.completed ;
@@ -47,7 +47,7 @@ app.put("api/tasks/:id",(req,res)=>{
 
 app.delete("/api/task/:id",(req,res)=>{
     const  id =req.params.id;
-    const task = data.find((task)=> task.id === parseInt(id));
+    const task = data.tasks.find((task)=> task.id === parseInt(id))
     const index =data.indexOf(task);
     data.splice(index,1);
     res.send(task);
