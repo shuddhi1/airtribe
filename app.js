@@ -49,7 +49,7 @@ app.delete("/api/task/:id",(req,res)=>{
     const  id =req.params.id;
     const task = data.tasks.find((task)=> task.id === parseInt(id))
     const index =data.indexOf(task);
-    data.splice(index,1);
+    data.tasks.splice(index,1);
     res.send(task);
 })
 
